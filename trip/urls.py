@@ -11,5 +11,5 @@ urlpatterns = [
     # path('new_buyan', views.new_buyan),
     # path('russian_settlement', views.russian_settlement),
     # path('yagodnoe', views.yagodnoe),
-    path('', views.allplaces),
+    path('', views.allplaces, name='main_page'),
 ]
