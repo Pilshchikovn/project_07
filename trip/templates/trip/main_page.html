@@ -5,13 +5,15 @@
     <title>Menu</title>
 </head>
 <body>
+{%  include 'includes/navbar.html' %}
+
 <h1>Приложение гороскоп</h1>
 <h1>
     <ol>
         {% for trip in all_trips %}
-        <li><a href="{% url 'favourite_place' each_place=trip%}"> {{ trip }}</a> </li>
- <!--       чтобы не хардкодить есть инструмент url, подставляем на имени вместе с его аргуменом из фукнкции-->
-<!--        <li><a href="/trip/{{trip}}"> {{ trip }}</a> </li>-->
+        <li><a href="{% url 'favourite_place' each_place=trip%}"> {{ trip }}</a></li>
+        <!--       чтобы не хардкодить есть инструмент url, подставляем на имени вместе с его аргуменом из фукнкции-->
+        <!--        <li><a href="/trip/{{trip}}"> {{ trip }}</a> </li>-->
         {% endfor %}
     </ol>
 </h1>

@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Tours.</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+
+
+{% block title%} FreeTours {% endblock title%}
+
+{% block content%}
+{%  include 'includes/navbar.html' %}
+
 <h1>Вся информация о бесплатных турах!</h1>
-</body>
-</html>
+
+{% endblock content%}
