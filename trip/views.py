@@ -1,13 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
-from django.template.loader import render_to_string
 
 places = {
     'new_buyan': 'Страница посвященная Новому Буяну',
     'russian_settlement': 'Страница посвященная русской селитьбе',
     'yagodnoe': 'Страница посвященная c.Ягодное',
-    'pribreznii': 'Страница посвященная Прибрежному',
+
 }
 
 
@@ -17,19 +16,11 @@ def allplaces(request):
 
 def get_info_about_place(request, each_place: str):
     description = places.get(each_place)
-    data = {
-        'description_of_place': description,
-        'place': each_place,
-    }
-    return render(request, 'trip/info_about_place.html', context=data)
+    if description:
+        return HttpResponse(description)
+    else:
+        return HttpResponseNotFound(f'Неизвестное место {each_place}')
 
-
-# def get_info_about_place(request, each_place: str):
-#     description = places.get(each_place)
-#     if description:
-#         return HttpResponse(description)
-#     else:
-#         return HttpResponseNotFound(f'Неизвестное место {each_place}')
 
 def get_info_about_place_by_number(request, each_place: int):
     if each_place > len(list(places)):
@@ -49,13 +40,7 @@ def get_info_about_place_by_number(request, each_place: int):
 #     place_name = list(places)[each_place-1]
 #     return HttpResponseRedirect(f'/places/{place_name}')
 def get_tours(request):
-    responce = render(request, 'trip/get_tours.html')
-    return HttpResponse(responce)
-
-# def get_tours(request):
-#     responce=render_to_string('trip/get_tours.html')
-#     return HttpResponse(responce)
-
+    return HttpResponse('Тут будет информация о турах')
 
 # def get_info_about_place(request, each_place):
 #     if each_place == 'new_buyan':
