@@ -1,24 +1,17 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Menu</title>
 </head>
 <body>
 <h1>Приложение гороскоп</h1>
 <h1>
     <ol>
-
-        <li>
-
-        </li>
-
+        {% for key,value in all_trips.items %}
+        <li><a>{{ key }}</a> {{value}} </li>
+        {% endfor %}
     </ol>
-
-
-
 </h1>
 </body>
 </html>
