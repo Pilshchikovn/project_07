@@ -4,16 +4,16 @@ from django.urls import reverse
 
 
 places = {
-    'new_buyan': 'Страница посвященная Новому Буяну',
-    'russian_settlement': 'Страница посвященная русской селитьбе',
-    'yagodnoe': 'Страница посвященная c.Ягодное',
+    'Новый Буян - new_buyan': 'Тут информация по Новому Буяну',
+    'Русская селитьба - russian_settlement': 'Тут информация по  русской селитьбе',
+    'Ягодное - yagodnoe': 'Тут информация по c.Ягодное',
 
 }
 
 
 def allplaces(request):
     data = {
-        'all_trips': places,
+        'all_trips': list(places),
     }
     return render(request, 'trip/main_page.html', context=data)
 
@@ -48,8 +48,11 @@ def get_info_about_place_by_number(request, each_place: int):
 #         return HttpResponseNotFound(f'Был передан не верный порядковый номер {each_place}')
 #     place_name = list(places)[each_place-1]
 #     return HttpResponseRedirect(f'/places/{place_name}')
-def get_tours(request):
-    return HttpResponse('Тут будет информация о турах')
+def buy_tour(request):
+    return render(request, 'trip/buy_tour.html')
+
+def free_tour(request):
+    return render(request, 'trip/free_tour.html')
 
 # def get_info_about_place(request, each_place):
 #     if each_place == 'new_buyan':
