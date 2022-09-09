@@ -1,26 +1,25 @@
-{%  load static %}
-
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="{% static 'trip/css/main_page.css' %}">
-
     <meta charset="UTF-8">
     <title>Menu</title>
+    <link rel="stylesheet" href="{% static '/trip/css/main_page.css'%}">
 </head>
 <body>
 {% include 'includes/navbar.html' %}
 
-<h1>Приложение гороскоп</h1>
+<h1>Проект тур</h1>
+<h2>Тур по Самаре</h2>
 <h1>
-    <ol>
+    <ul>
         {% for trip in all_trips %}
         <li><a href="{% url 'favourite_place' each_place=trip%}"> {{ trip }}</a></li>
         <!--       чтобы не хардкодить есть инструмент url, подставляем на имени вместе с его аргуменом из фукнкции-->
         <!--        <li><a href="/trip/{{trip}}"> {{ trip }}</a> </li>-->
         {% endfor %}
-    </ol>
+    </ul>
 </h1>
 </body>
 </html>

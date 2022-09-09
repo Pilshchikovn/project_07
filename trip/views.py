@@ -2,11 +2,13 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 
-
 places = {
-    'Новый Буян - new_buyan': 'Тут информация по Новому Буяну',
-    'Русская селитьба - russian_settlement': 'Тут информация по  русской селитьбе',
-    'Ягодное - yagodnoe': 'Тут информация по c.Ягодное',
+    'с.Новый Буян: new_buyan': 'Тут информация по Новому Буяну',
+    'с.Русская селитьба: russian_settlement': 'Тут информация по  русской селитьбе',
+    'с.Ягодное: yagodnoe': 'Тут информация по c.Ягодное',
+    'п.Прибрежный: pribreznyi': 'Тут информация по п.Прибрежный',
+    'с.Чубовка: chubovka': 'Тут информация по c.Чубовка',
+    'Алексеевские озера: alekseevskie_lakes': 'Тут информация по Алексеевским озерам',
 
 }
 
@@ -22,14 +24,17 @@ def allplaces(request):
 #     return HttpResponse(list(places))
 
 
-
-
 def get_info_about_place(request, each_place: str):
     description = places.get(each_place)
-    if description:
-        return HttpResponse(description)
-    else:
-        return HttpResponseNotFound(f'Неизвестное место {each_place}')
+    return render(request, 'trip/info_about_place.html', context={"description": description})
+
+
+# def get_info_about_place(request, each_place: str):
+#     description = places.get(each_place)
+#     if description:
+#         return HttpResponse(description)
+#     else:
+#         return HttpResponseNotFound(f'Неизвестное место {each_place}')
 
 def get_info_about_place_by_number(request, each_place: int):
     if each_place > len(list(places)):
@@ -50,6 +55,7 @@ def get_info_about_place_by_number(request, each_place: int):
 #     return HttpResponseRedirect(f'/places/{place_name}')
 def buy_tour(request):
     return render(request, 'trip/buy_tour.html')
+
 
 def free_tour(request):
     return render(request, 'trip/free_tour.html')

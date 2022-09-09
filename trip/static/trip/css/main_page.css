@@ -1,19 +1,19 @@
 
 
-ol {
+ul {
     -webkit-column-count: 2;
     -moz-column-count: 2;
     column-count: 2;
     list-style-type: none;
-    background-color: #FFDAB9;
+    background-color: #66CDAA;
     width: 90%;
-    max-width: 35rem;
+    max-width: 95rem;
     border-radius: 20px;
     margin: 2rem auto;
     padding: 1px;
 }
 
-ol li {
+ul li {
     text-align: center;
     width: 100%;
     font-size: 3rem;
@@ -21,7 +21,7 @@ ol li {
 }
 
 ul a:hover, ul a:active {
-    color: #008B8B;
+    color: #B8860B;
 }
 
 h1 {
@@ -37,4 +37,9 @@ h2 {
     text-align: center;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     font-size: 30px;
+}
+
+a {
+  color: #2F4F4F;
+
 }
