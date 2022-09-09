@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
+{% load static %}
 
-
-
+{% block css_additional %} <link rel="stylesheet" href="{% static 'trip/css/main_page.css' %}">{% endblock css_additional%}
 {% block title%} BuyTour {% endblock title%}
 
 {% block content%}
