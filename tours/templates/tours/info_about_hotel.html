@@ -1,0 +1,15 @@
+
+
+{% extends 'tours/base.html' %}
+
+
+{% block title%} Hotel {% endblock%}
+
+{% block content%}
+
+<h1>Информация об отеле {{description.name}}</h1>
+
+<h2>Рейтинг {{description.rating}}</h2>
+<h2>Год {{description.year}}</h2>
+<h2>Вместимость {{description.capacity}}</h2>
+{% endblock%}
