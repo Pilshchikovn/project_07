@@ -10,7 +10,7 @@ Hotels
 <h1>Вся информация об отелях</h1>
     <ul>
         {%  for hotel in all_hotels %}
-            <li>{{hotel}}, capacity {{hotel.capacity }}</li>
+            <li><a href="{{hotel.get_url}}">{{hotel}}</a>, capacity {{hotel.capacity }}</li>
         {%  endfor  %}
     </ul>
 {% endblock%}
