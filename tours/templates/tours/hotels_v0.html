@@ -9,10 +9,8 @@ Hotels
 
 <h1>Вся информация об отелях</h1>
     <ul>
-        {%  for hotel in object_list %}
-            <li>
-                <a href="{{ hotel.get_url }}"> {{hotel.name}}</a>, capacity {{hotel.capacity }} rating {{hotel.rating}}
-            </li>
+        {%  for hotel in all_hotels %}
+            <li>{{hotel}}, capacity {{hotel.capacity }}</li>
         {%  endfor  %}
     </ul>
 {% endblock%}

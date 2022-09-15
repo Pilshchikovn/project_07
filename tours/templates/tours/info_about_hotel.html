@@ -7,9 +7,10 @@
 
 {% block content%}
 
-<h1>Информация об отеле {{description.name}}</h1>
+<h1>Информация об отеле {{object.name}}</h1>
 
-<h2>Рейтинг {{description.rating}}</h2>
-<h2>Год {{description.year}}</h2>
-<h2>Вместимость {{description.capacity}}</h2>
+<h2>Рейтинг {{object.rating}}</h2>
+<h2>Вместимость {{object.capacity}}</h2>
+<h2>Год {{object.year}}</h2>
+
 {% endblock%}
