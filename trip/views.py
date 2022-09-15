@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
+from django.views.generic.base import TemplateView
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import FormView, CreateView,UpdateView
+
 
 places = {
     'Новый Буян': 'Тут информация по Новому Буяну',
@@ -53,8 +57,17 @@ def get_info_about_place_by_number(request, each_place: int):
 #         return HttpResponseNotFound(f'Был передан не верный порядковый номер {each_place}')
 #     place_name = list(places)[each_place-1]
 #     return HttpResponseRedirect(f'/places/{place_name}')
-def buy_tour(request):
-    return render(request, 'trip/buy_tour.html')
+
+class BuyTour(TemplateView):
+    template_name = 'trip/buy_tour.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['date'] = 'На 2023 год'
+        return context
+
+# def buy_tour(request):
+#     return render(request, 'trip/buy_tour.html')
 
 
 def free_tour(request):
